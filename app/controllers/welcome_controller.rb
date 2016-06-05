@@ -4,4 +4,10 @@ class WelcomeController < ActionController::Base
     @token = Braintree::ClientToken.generate
   end
 
+  def create
+  end
+
+  def new
+  end
+
 end
