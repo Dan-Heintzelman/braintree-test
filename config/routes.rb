@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  get 'products/:id/add' => 'products#add', as: 'add_to_cart'
+
   resources :products
   resources :users
 

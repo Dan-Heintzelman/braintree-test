@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <h2><%= flash[:notice] %>
+<% end %>
+
 <ul>
   <% @products.each do |item|  %>
     <li><a href="/products/<%= item.id %>"><%= item.name %></a></li>
