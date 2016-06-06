@@ -1,7 +1,7 @@
 class StoreController < ActionController::Base
 
   def index
-    @items = Item.all
+    @products = Product.all
   end
 
 end
