@@ -2,7 +2,7 @@ module SessionHelper
 
   def current_user
     if logged_in?
-      @current_user = User.find(session[:user_id])
+      @current_user = User.first || User.find(session[:user_id]) 
     end
   end
 
