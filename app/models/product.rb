@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  attr_accessor :multiplier
+
   has_many :selecteditems
   has_many :users, through: :selecteditems
 

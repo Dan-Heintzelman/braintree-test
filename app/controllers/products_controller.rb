@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
       flash[:notice] = selection.product.name + " was added to your cart"
       redirect_to root_url
     else
-      # create errors here
+      # Handle errors(not part of MVP)
     end
   end
+
 
 
 end
