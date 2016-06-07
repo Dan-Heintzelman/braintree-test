@@ -1,0 +1,6 @@
+<% if @error %>
+  <p>Transaction Failed. <%= link_to "Try again", display_cart_user_path(current_user) %></li></p>
+
+<% else %>
+  <p>Transaction Success!</p>
+<% end %>

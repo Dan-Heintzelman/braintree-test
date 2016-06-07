@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :charges, only: [:new, :create] do
+
+  end
+
+  get 'charges/complete' => 'charges#complete', as: 'complete_charge'
+
   # resources :users only: [:show] do
   #   member
   # end
