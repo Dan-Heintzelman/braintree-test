@@ -15,7 +15,15 @@ Rails.application.routes.draw do
   get 'products/:id/add' => 'products#add', as: 'add_to_cart'
 
   resources :products
-  resources :users
+  resources :users do
+    member do
+      get 'display_cart'
+    end
+  end
+
+  # resources :users only: [:show] do
+  #   member
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

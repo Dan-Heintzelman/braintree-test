@@ -16,5 +16,17 @@ class User < ActiveRecord::Base
     return cost
   end
 
+  def build_cart
+    cart = self.products.uniq
+    cart.each do |item|
+      puts item.multiplier = self.products.where(id: item).length
+      puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+      puts item.multiplier
+    end
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    puts cart[0]
+    return cart
+  end
+
 
 end

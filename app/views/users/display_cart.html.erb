@@ -1,0 +1,14 @@
+<p>You Got here! Now you can show a user's cart :D.</p>
+
+<div class="cart_item">
+
+  <ul>
+    <% @cart.each do |item| %>
+      <li><h3><%= item.name %></h3></li>
+      <li>Item Price: <%= item.price %></li>
+      <li>Item Quantity: <%= item.multiplier %></li>
+      <li>Total: <%= (item.price * item.price_in_dollars) %></li>
+    <% end %>
+  </ul>
+
+</div>
