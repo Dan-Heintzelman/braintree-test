@@ -9,8 +9,6 @@ class ChargesController < ApplicationController
   def create
     @total_cost = current_user.cart_total
     nonce = params[:payment_method_nonce]
-    puts "@@@@@@@@@@@@@@@@"
-    puts nonce
     result = Braintree::Transaction.sale(
       amount: "#{@total_cost}",
       payment_method_nonce: nonce,
@@ -27,15 +25,11 @@ class ChargesController < ApplicationController
 
   def complete
     result = params[:result]
-    puts "COMPLETE ROUTE *************"
-    puts result
     if result == "Success"
       current_user.selecteditems.destroy_all
     else
       @error = "Transaction failed :("
     end
   end
-
-
 
 end
