@@ -1,3 +1,10 @@
+<% if @errors %>
+  <ul class="errors">
+  <% @errors.each do |error| %>
+    <li><%= error %></li> <!-- Check to see what error outputs -->
+  <% end %>
+  </ul>
+<% end %>
 <h1>Click to submit purchase for $<%= (@total_cost.to_f / 100) %> </h1>
 
 <%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form') do %>

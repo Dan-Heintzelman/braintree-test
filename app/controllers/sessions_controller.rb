@@ -5,14 +5,15 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in_user(@user)
       redirect_to root_url
+    else
+      @errors = @user.errors.full_messages
+      render "new"
     end
   end
 
   def destroy
-      format.html {
-        log_out_user
-        redirect_to root_url
-    end
+    log_out_user
+    redirect_to root_url
   end
 
   def log_in_user(user)
