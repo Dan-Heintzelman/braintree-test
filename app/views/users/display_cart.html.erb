@@ -1,14 +1,23 @@
-<p>You Got here! Now you can show a user's cart :D.</p>
+<h2>Welcome to your cart, <%= current_user.first_name %></h2>
 
 <div class="cart_item">
 
   <ul>
-    <% @cart.each do |item| %>
-      <li><h3><%= item.name %></h3></li>
-      <li>Item Price: <%= item.price %></li>
-      <li>Item Quantity: <%= item.multiplier %></li>
-      <li>Total: <%= (item.price * item.price_in_dollars) %></li>
+    <% if @cart %>
+      <% @cart.each do |item| %>
+        <h3><%=link_to "#{item.name}", product_path(item)%></h3>
+        <li>Item Price: <%= item.price_in_dollars %></li>
+        <li>Item Quantity: <%= item.multiplier %></li>
+        <li>Total: <%= (item.price_in_dollars * item.multiplier) %></li>
+      <% end %>
+    <% else %>
+      <h3>Your Cart is empty, go add some brainfreeze!</h3>
     <% end %>
   </ul>
+
+  <h4>Total Cost: <%= (@total_cost.to_f / 100) %></h4>
+  <h3><%=link_to "Check Out", new_charge_path %></h3>
+
+
 
 </div>
