@@ -3,7 +3,7 @@
 
 # Instructions for setup
 
-**1. Set up your rails app. **
+**1. Set up your rails app.**
 - Navigate to the directory where you cloned the repo
 - Run 'bundle install' to set up requires gems
 
@@ -25,6 +25,7 @@ BT_MERCHANT_ID=MerchantIDGoesHere
 - Rails s
 
 **5. Create account**
+- Navigate to http://localhost:3000 in your browser
 - Register a new user
 - Select items from the home page
 - Add items to your cart
