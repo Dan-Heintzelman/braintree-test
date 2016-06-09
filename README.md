@@ -16,13 +16,15 @@
 - In the .env file make sure to set up environment variables for your braintree account:
 
 BT_PUBLIC_KEY=PublicKeyGoesHere
+
 BT_PRIVATE_KEY=PrivateKeyGoesHere
+
 BT_MERCHANT_ID=MerchantIDGoesHere
 
-**4. Run server
+**4. Run server**
 - Rails s
 
-**5. Create account
+**5. Create account**
 - Register a new user
 - Select items from the home page
 - Add items to your cart
