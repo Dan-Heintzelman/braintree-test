@@ -4,12 +4,16 @@
   <title>Brain Freeze Store</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BrainFreeze!  Rare Icecreams</a>
+    </div>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -22,6 +26,7 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>
         <% if logged_in? %>
+          <li><a href="#">Welcome, <%= current_user.first_name %></a></li>
           <li><%= link_to 'My Cart', display_cart_user_path(current_user) %></li>
 
         <% end %>
@@ -33,7 +38,6 @@
         <li><%= link_to 'Login',  login_path %></li>
         <li><%= link_to 'Register', new_user_path %></li>
         <% end %>
-
       </ul>
     </div>
 

@@ -18,9 +18,9 @@ izzy = User.create!(first_name: "Izzy", last_name: "Heintzelman", password: "pas
 users = [dan, izzy]
 # Create some products
 
-p1 = Product.create!(name: "Organic Parakeet Freeze", description: "This icecream will make you so happy, you'll be squawking out random words for hours!", price: 1000)
-p2 = Product.create!(name: "Ice Cream Soda", description: "Ice cream that tastes like cream soda. It's Soooda licious.", price: 1500)
-p3 = Product.create!(name: "Blueberry Breeze", description: "Blueberry icecream, nuff' said.", price: 2000)
+p1 = Product.create!(name: "Organic Parakeet Freeze", description: "This icecream will make you so happy, you'll be squawking out random words for hours!", price: 10.00)
+p2 = Product.create!(name: "Ice Cream Soda", description: "Ice cream that tastes like cream soda. It's Soooda licious.", price: 15.00)
+p3 = Product.create!(name: "Blueberry Breeze", description: "Blueberry icecream, nuff' said.", price: 20.00)
 products = [p1,p2,p3]
 
 10.times do

@@ -16,6 +16,7 @@ class ChargesController < ApplicationController
     nonce = params[:payment_method_nonce]
 
     # If payment was method was submitted, create a customer
+    # Future refactor: add ability to create add. payment methods
     if nonce
       customer_result = Braintree::Customer.create(
         first_name: current_user.first_name,

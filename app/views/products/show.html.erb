@@ -2,7 +2,9 @@
 <ul>
 
   <li><%= @product.description %></li>
-  <li><%= @product.price_in_dollars %></li>
-  <li><%= link_to "Add to Cart", add_to_cart_path %></li>
-  <li></li>
+  <li><%= number_to_currency(@product.price, precision: 2) %></li>
+  <% if logged_in? %>
+    <li><%= link_to "Add to Cart", add_to_cart_path %></li>
+  <% end %>
+
 </ul>
