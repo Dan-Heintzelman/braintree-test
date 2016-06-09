@@ -1,23 +1,38 @@
-<h2>Welcome to your cart, <%= current_user.first_name %></h2>
+<h2 class="text-center">Welcome to your cart, <%= current_user.first_name %></h2>
 
-<div class="cart_item">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <ul>
+        <% if @cart.length > 0 %>
+          <% @cart.each do |item| %>
+            <h3><%=link_to "#{item.name}", product_path(item)%></h3>
+            <li>Item Price: <%= number_to_currency(item.price, precision: 2) %></li>
+            <li>Item Quantity: <%= item.multiplier %></li>
+            <li>Total: <%= number_to_currency((item.price * item.multiplier)) %></li>
+          <% end %>
+            <%= form_tag({controller: 'charges', action: 'new'}, method: 'get') do %>
+            <div class="form-group">
+              <input type="submit" class="btn btn-default text-center" value="Checkout">
+            </div>
+            <% end %>
+            <%= form_tag({controller: 'users', action: 'destroy'}, method: 'delete') do %>
+            <div class="form-group">
+              <input type="submit" class="btn btn-default text-center" value="Empty Cart">
+            </div>
+            <% end %>
+        <% else %>
+          <h4 class="text-center">Your Cart is empty, go add some brainfreeze!</h4>
+        <% end %>
+      </ul>
 
-  <ul>
-    <% if @cart %>
-      <% @cart.each do |item| %>
-        <h3><%=link_to "#{item.name}", product_path(item)%></h3>
-        <li>Item Price: <%= number_to_currency(item.price, precision: 2) %></li>
-        <li>Item Quantity: <%= item.multiplier %></li>
-        <li>Total: <%= number_to_currency((item.price * item.multiplier)) %></li>
-      <% end %>
-    <% else %>
-      <h3>Your Cart is empty, go add some brainfreeze!</h3>
-    <% end %>
-  </ul>
 
-  <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
-  <h3><%=link_to "Check Out", new_charge_path %></h3>
+        <h3 class="text-center">Item Total: <%= number_to_currency(@total_cost) %></h4>
 
-
-
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
 </div>

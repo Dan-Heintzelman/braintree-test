@@ -7,32 +7,41 @@
   <% end %>
   </ul>
 <% end %>
-<h3>Click to submit purchase for <%= number_to_currency(@total_cost, precision: 2) %> </h3>
+<h3 class="text-center">Click to submit purchase for <%= number_to_currency(@total_cost, precision: 2) %> </h3>
 
 <div class="container">
-<%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form', role: 'form') do %>
-  <div class="form-group">
-    <label for="credit-card-field">Card Number</label>
-    <div id="credit-card-field" class="form-control hosted-fields-container"></div>
-  </div>
+  <div class="row">
+    <div class="col-sm-2">
 
-  <div class="form-group">
-    <label for="security-code-field">CVV</label>
-    <div id="security-code-field"  class="form-control hosted-fields-container"></div>
-  </div>
+    </div>
+    <div class="col-sm-8">
+      <%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form', role: 'form') do %>
+        <div class="form-group">
+          <label for="credit-card-field">Card Number</label>
+          <div id="credit-card-field" class="form-control hosted-fields-container"></div>
+        </div>
 
-  <div class="form-group">
-    <label for="expiration-field">Expiration</label>
-     <div id="expiration-field" class="form-control hosted-fields-container"></div>
-  </div>
+        <div class="form-group">
+          <label for="security-code-field">CVV</label>
+          <div id="security-code-field"  class="form-control hosted-fields-container"></div>
+        </div>
 
-  <div class="form-group">
-    <label for="postal-code-field">Postal Code</label>
-    <div id="postal-code-field" class="form-control hosted-fields-container"></div>
-  </div>
+        <div class="form-group">
+          <label for="expiration-field">Expiration</label>
+           <div id="expiration-field" class="form-control hosted-fields-container"></div>
+        </div>
 
-  <input type="submit" class="btn btn-default" value="Submit Transaction">
-<% end %>
+        <div class="form-group">
+          <label for="postal-code-field">Postal Code</label>
+          <div id="postal-code-field" class="form-control hosted-fields-container"></div>
+        </div>
+        <input type="submit" class="btn btn-default" value="Submit Transaction">
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+    </div>
+  <% end %>
 </div>
 
 
@@ -43,7 +52,7 @@ var clientToken = document.getElementById('braintree-client-token').innerHTML;
 braintree.setup(clientToken, 'custom', {
   id: 'braintree-form',
   hostedFields: {
-    styles: { // styles taken from Evan Hahn's solution, *possibly restyle
+    styles: { // hosted fields styles taken from Evan Hahn's solution :D
       'input': {
         'font-family': 'sans-serif',
         'font-size': '16pt',
