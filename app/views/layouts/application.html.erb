@@ -26,7 +26,7 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Brainfreeze Rare Icecream!', root_path %></li>
+        <li><%= link_to 'Brainfreeze Rare Ice Cream!', root_path %></li>
         <% if logged_in? %>
           <li><a href="#">Welcome, <%= current_user.first_name %></a></li>
           <li><%= link_to 'My Cart', display_cart_user_path(current_user) %></li>
