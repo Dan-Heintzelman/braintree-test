@@ -1,5 +1,5 @@
-<h1>Click to confirm purchase for $<%= @total_cost %> </h1>
+<h4>Click to confirm purchase for $<%= @total_cost %> </h4>
 
 <%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form') do %>
-  <input type="submit" value="Submit Transaction">
+  <input type="submit" class="btn btn-default" value="Submit Transaction">
 <% end %>

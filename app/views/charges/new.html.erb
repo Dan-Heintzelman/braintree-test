@@ -1,29 +1,39 @@
-<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+
 
 <% if @errors %>
-  <ul class="errors">
+  <ul class="text-danger">
   <% @errors.each do |error| %>
     <li><%= error %></li> <!-- Check to see what error outputs -->
   <% end %>
   </ul>
 <% end %>
-<h1>Click to submit purchase for <%= number_to_currency(@total_cost, precision: 2) %> </h1>
+<h3>Click to submit purchase for <%= number_to_currency(@total_cost, precision: 2) %> </h3>
 
-<%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form') do %>
-  <label for="credit-card-field">Card Number</label>
-  <div id="credit-card-field" class="hosted-fields-container"></div>
+<div class="container">
+<%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form', role: 'form') do %>
+  <div class="form-group">
+    <label for="credit-card-field">Card Number</label>
+    <div id="credit-card-field" class="form-control hosted-fields-container"></div>
+  </div>
 
-  <label for="security-code-field">CVV</label>
-  <div id="security-code-field" class="hosted-fields-container"></div>
+  <div class="form-group">
+    <label for="security-code-field">CVV</label>
+    <div id="security-code-field"  class="form-control hosted-fields-container"></div>
+  </div>
 
-  <label for="expiration-field">Expiration</label>
-   <div id="expiration-field" class="hosted-fields-container"></div>
+  <div class="form-group">
+    <label for="expiration-field">Expiration</label>
+     <div id="expiration-field" class="form-control hosted-fields-container"></div>
+  </div>
 
-  <label for="postal-code-field">Postal Code</label>
-  <div id="postal-code-field" class="hosted-fields-container"></div>
+  <div class="form-group">
+    <label for="postal-code-field">Postal Code</label>
+    <div id="postal-code-field" class="form-control hosted-fields-container"></div>
+  </div>
 
-  <input type="submit" value="Submit Transaction">
+  <input type="submit" class="btn btn-default" value="Submit Transaction">
 <% end %>
+</div>
 
 
 <script id="braintree-client-token" type="application/json"><%= @token %></script>

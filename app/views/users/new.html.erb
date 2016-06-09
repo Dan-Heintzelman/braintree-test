@@ -1,4 +1,4 @@
-<%= form_for :user, url: {action: 'create'}, method: :post do |f| %>
+<%= form_for :user, url: {action: 'create'}, method: :post, html: {role: 'form'} do |f| %>
   <% if @errors %>
     <ul>
       <% @errors.each do |error| %>
@@ -7,17 +7,24 @@
     </ul>
   <% end %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Create User" %>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <%= f.submit "Create User", class: 'btn btn-default' %>
 <% end %>
