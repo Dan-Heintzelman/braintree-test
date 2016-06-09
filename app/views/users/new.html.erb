@@ -1,30 +1,48 @@
-<%= form_for :user, url: {action: 'create'}, method: :post, html: {role: 'form'} do |f| %>
-  <% if @errors %>
-    <ul>
-      <% @errors.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
+
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+  <li><%= error %></li>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control' %>
-  </div>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-  <%= f.submit "Create User", class: 'btn btn-default' %>
+</ul>
 <% end %>
+
+
+    <h3 class='text-center'>Create a new account!</h3>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-8">
+      <%= form_for :user, url: {action: 'create'}, method: :post, html: {role: 'form'} do |f| %>
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <%= f.submit "Create User", class: 'btn btn-default' %>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+    </div>
+  </div>
+</div>
