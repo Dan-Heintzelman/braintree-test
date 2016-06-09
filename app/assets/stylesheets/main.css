@@ -1,0 +1,18 @@
+/* Navbar styling */
+
+.logonav {
+  margin: 5px 5px;
+  height: 60px;
+  width: 60px;
+}
+
+
+/* Global Styling */
+
+li {
+  list-style: none;
+}
+
+.product-div {
+  border: hsl(189,39,45) solid 4px;
+}

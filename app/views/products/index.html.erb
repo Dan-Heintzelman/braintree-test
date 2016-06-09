@@ -1,10 +1,13 @@
 <% if flash[:notice] %>
-  <p class="positive_notice"><%= flash[:notice] %><p>
+  <p class="text-success"><%= flash[:notice] %><p>
 <% end %>
 
 <ul>
   <% @products.each do |item|  %>
-    <li><a href="/products/<%= item.id %>"><%= item.name %></a></li>
+    <div class="col-sm-3 product-div">
+      <a href="/products/<%= item.id %>">  <%=image_tag("iceCreamLogo.png", class: 'logonav')%></a>
+      <p><a href="/products/<%= item.id %>"><%= item.name %></a></p>
+    </div>
   <% end %>
 
 </ul>
