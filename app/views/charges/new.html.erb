@@ -1,3 +1,5 @@
+<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+
 <% if @errors %>
   <ul class="errors">
   <% @errors.each do |error| %>
@@ -5,7 +7,7 @@
   <% end %>
   </ul>
 <% end %>
-<h1>Click to submit purchase for $<%= (@total_cost.to_f / 100) %> </h1>
+<h1>Click to submit purchase for <%= number_to_currency(@total_cost, precision: 2) %> </h1>
 
 <%= form_tag({controller: 'charges', action: 'create'}, method: 'post', id: 'braintree-form') do %>
   <label for="credit-card-field">Card Number</label>
@@ -23,7 +25,7 @@
   <input type="submit" value="Submit Transaction">
 <% end %>
 
-<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+
 <script id="braintree-client-token" type="application/json"><%= @token %></script>
 
 <script>
